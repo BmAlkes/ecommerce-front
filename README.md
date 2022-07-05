@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Instruções
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Instruções iniciais
 
-## Available Scripts
+ - Dar yarn install para instalar as dependências (usar estritamente yarn para evitar problemas no futuro).
+ - Estilizar os produtos com fake-data (você deve criar constantes para utilizar no projeto até o back-end ficar pronto).
 
-In the project directory, you can run:
+### Início
+ 
+ 1 - Definir as rotas principais da aplicação:
+  - Home
+  - Produtos
+  - Produto
+  - Login
+  - Registro
 
-### `npm start`
+ 2 - Definir estilos globais e tema da aplicação.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ 3 - Começar a criação dos components principais (com foco na estilização para deixar o mais próximo possível).
+  - Header
+  - Button (com opção de tamanhos, variantes para cada cor, opção de colocar ícone)
+  - Item de produto
+  - Heading
+  - Horizontal Line
+  - Logo
+  - Componente de Produtos (visto que é reutilizado em 2 lugares).
+  - Drawer (carrinho).
+  - Botão de ver mais.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+ 4 - Criação das páginas
+  - Junção de componentes e estilização das páginas com dados fake.
+  - Pode me consultar quando for precisar dos dados para eu passar o model.
 
-### `npm test`
+ 5 - Nesse projeto vamos focar bem na estilização para deixar o mais próximo possível, então foque bastante nisso e quando fizer a estilização do projeto, comece as funcionalidades.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Funcionalidades
 
-### `npm run build`
+ 1 - Contexto de Autenticação
+  - Adicionar useEffect para ficar responsável por adicionar o usuário ao estado de User.
+  - Criar função de signIn (responsável por fazer o login e adicionar o token).
+  - Criar função de signUp (responsável por criar o usuário).
+  - Criar função de signOut (responsável por deslogar o usuário, removendo ele do estado, jogando ele pra pagina Home e removendo o token do localStorage).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ 2 - Contexto de Carrinho
+  Consultar comigo antes de fazer contexto de carrinho. Vai ter as funções:
+   - Função de addToCart (adicionar item ao carrinho).
+   - Função de changeQuantity (mudar a quantidade de um item no carrinho).
+   - Função de removeFromCart (remover item do carrinho).
