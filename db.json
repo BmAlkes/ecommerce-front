@@ -1,0 +1,18 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Nike Air Max 270 G ",
+      "price": 399,
+      "description": "Look legendary in the Nike Air Max 270 G. The silhouette is a stitch-for-stitch reconstruction of the original big Air icon, with the addition of breathable mesh and innovative traction that performs at the highest level of play.",
+      "img": "https://authenticfeet.vteximg.com.br/arquivos/ids/229008-1000-1000/Tenis-Nike-Air-Max-270-Masculino-Preto-5.jpg?v=637051922062970000"
+    },
+    {
+      "id": 2,
+      "title": "Nike SuperRep Go 3 ",
+      "price": 259,
+      "description": "The new Nike SuperRep Go 3 Flyknit Shoe is a radical design story rooted in sustainability and innovation. The zoned Flyknit construction wraps your foot in 360 degrees of comfort and support. A finely ground, reclaimed foam midsole gives you responsive cushioning for high-impact training. The lightweight, packable design lets you keep them close, no matter where your next workout takes you.",
+      "img": "https://www.nike.com/il/t/superrep-go-3-next-nature-flyknit-training-shoes-clwc8v/DH3394-010"
+    }
+  ]
+}

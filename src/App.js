@@ -4,6 +4,10 @@ import { AuthProvider } from "./context/AuthContext";
 import { CartProvider } from "./context/CartContext";
 
 import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Products from "./pages/Products";
+import Register from "./pages/Register";
+import Product from "./pages/Product";
 import theme from "./styles/theme";
 
 function App() {
@@ -13,7 +17,11 @@ function App() {
         <CartProvider>
           <BrowserRouter>
             <Routes>
+              <Route exact path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
               <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/product" element={<Product />} />
             </Routes>
           </BrowserRouter>
         </CartProvider>

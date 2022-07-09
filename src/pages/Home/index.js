@@ -1,9 +1,8 @@
-import * as S from './styles'
+import Header from "../../components/Header";
+import * as S from "./styles";
 
 function Home() {
-  return (
-    <div>Home</div>
-  )
+  return <Header />;
 }
 
-export default Home
+export default Home;
