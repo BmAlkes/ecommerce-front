@@ -29,4 +29,22 @@ export const Wrapper = styled.main`
       width: 40px;
     }
   }
+  .squareProduct {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .banner {
+    display: flex;
+    gap: 26px;
+  }
+  footer {
+    text-align: center;
+    font-size: 16px;
+    color: #666666;
+  }
+  footer p {
+    margin: 12px;
+  }
 `;

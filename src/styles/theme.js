@@ -6,7 +6,8 @@ const theme = {
     blackColor: "#000",
     whiteColor: "#FFF",
     textColor2: "#5B5B69",
-    line: "##DCE2E5",
+    line: "#DCE2E5",
+    backgroundColor: "#6C6CFF14",
   },
 };
 
