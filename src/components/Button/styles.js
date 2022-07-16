@@ -18,7 +18,7 @@ const Container = styled.button`
       background: transparent;
       color: ${(props) => props.theme.colors.whiteColor};
     `};
+  background-color: ${(props) => props.theme.colors.primaryColor};
   text-transform: uppercase;
 `;
-
 export { Container };

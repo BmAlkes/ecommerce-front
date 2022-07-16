@@ -73,17 +73,20 @@ const Container = styled.div`
     }
     p {
       text-align: center;
+      margin-bottom: 30px;
     }
     span {
       color: ${(props) => props.theme.colors.primaryColor};
       font-weight: 700;
     }
   }
+
   @media (max-width: 768px) {
     flex-direction: column-reverse;
     .leftArea img {
       margin: 0px;
     }
+  }
 `;
 
 export { Container };
