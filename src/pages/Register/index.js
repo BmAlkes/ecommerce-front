@@ -3,6 +3,7 @@ import { Container } from "./styles";
 import nike from "../../assets/imgs/nike2.png";
 
 import { Envelope, Lock } from "styled-icons/bootstrap";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
@@ -25,7 +26,10 @@ const Register = () => {
           <button>Register</button>
         </form>
         <p>
-          Have a Account? <span>Login</span>
+          Have a Account?{" "}
+          <Link to="/login">
+            <span>Login</span>
+          </Link>
         </p>
       </div>
     </Container>

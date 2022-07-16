@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  max-width: 1170px;
+  max-width: 1440px;
   margin: 0 auto;
   height: 100vh;
   display: flex;
 
   .leftArea {
-    flex: 1;
+    max-width: 720px;
     background-color: rgba(108, 108, 255, 0.08);
     p {
       color: ${(props) => props.theme.colors.primaryColor};
@@ -20,12 +20,15 @@ const Container = styled.div`
     }
   }
   .rightArea {
-    flex: 1;
+    max-width: 720px;
+    height: 100vh;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 auto;
+    align-items: center;
 
+    flex: 1;
     form {
       display: flex;
       flex-direction: column;
@@ -73,18 +76,20 @@ const Container = styled.div`
     }
     p {
       text-align: center;
-      margin-bottom: 30px;
     }
     span {
       color: ${(props) => props.theme.colors.primaryColor};
       font-weight: 700;
     }
   }
-
   @media (max-width: 768px) {
     flex-direction: column-reverse;
+
     .leftArea img {
       margin: 0px;
+    }
+    .rightArea {
+      margin: 30px;
     }
   }
 `;
