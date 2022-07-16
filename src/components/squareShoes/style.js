@@ -38,6 +38,10 @@ const Container = styled.div`
     font-size: 32px;
     font-weight: 600;
   }
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    margin-bottom: 67px;
+  }
 `;
 
 export { Container };

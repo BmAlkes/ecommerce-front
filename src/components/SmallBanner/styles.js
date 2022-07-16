@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  width: 570px;
+  max-width: 570px;
   height: 388px;
   background-color: ${(props) => props.theme.colors.secondaryColor};
   border-radius: 5px;
@@ -17,6 +17,20 @@ const Container = styled.div`
     justify-content: center;
     button {
       margin: 16px 79px 143px 32px;
+    }
+  }
+  @media (max-width: 768px) {
+    h2 {
+      padding: 32px 50px 16px 32px;
+    }
+    div {
+      flex-direction: column;
+      button {
+        margin-bottom: 10px;
+      }
+      img {
+        width: 200px;
+      }
     }
   }
 `;

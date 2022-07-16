@@ -47,4 +47,20 @@ export const Wrapper = styled.main`
   footer p {
     margin: 12px;
   }
+
+  @media (max-width: 768px) {
+    margin: 0 auto;
+    .dividerSection {
+      margin-top: 110px;
+    }
+    .squareProduct {
+      grid-template-columns: 1fr;
+      margin-top: 42px;
+    }
+    .banner {
+      flex-direction: column;
+      margin: auto;
+      gap: 26px;
+    }
+  }
 `;
