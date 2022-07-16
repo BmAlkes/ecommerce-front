@@ -84,12 +84,27 @@ const Container = styled.div`
   }
   @media (max-width: 768px) {
     flex-direction: column-reverse;
+    .leftArea {
+      text-align: center;
+    }
+    .leftArea p {
+      margin: 20px auto;
+      margin-bottom: 80px;
+    }
 
     .leftArea img {
-      margin: 0px;
+      margin: 30px;
+      width: 300px;
     }
     .rightArea {
-      margin: 30px;
+      margin: 10px;
+      form {
+        width: 350px;
+        margin: 30px auto;
+      }
+      button {
+        width: 350px;
+      }
     }
   }
 `;
