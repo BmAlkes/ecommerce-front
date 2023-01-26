@@ -8,6 +8,7 @@ import {
   LoginSubtitle,
   RightArea,
 } from "./styles";
+import { useForm } from "react-hook-form";
 import nike from "../../assets/imgs/nike2.png";
 
 import Header from "../../components/Header";
@@ -16,6 +17,8 @@ import CustomInput from "../../components/Input";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const { register } = useForm();
+
   return (
     <>
       <Header />

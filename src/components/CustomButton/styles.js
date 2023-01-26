@@ -10,6 +10,10 @@ export const CustomButtonContainer = styled.button`
   font-weight: 200;
   max-width: 300px;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   svg {
     width: 28px;
   }
