@@ -11,6 +11,7 @@ import {
 import nike from "../../assets/imgs/nike2.png";
 import Header from "../../components/Header";
 import { BsGoogle } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 // styles
 import Button from "../../components/CustomButton";
@@ -35,8 +36,10 @@ const Login = () => {
             <LoginInputContainer>
               <CustomInput placeholder="Password"></CustomInput>
             </LoginInputContainer>
-
             <Button>Enter</Button>
+            <LoginSubtitle>
+              Don't have a account? <Link to="/register">Register Please</Link>
+            </LoginSubtitle>
           </LoginContent>
         </RightArea>
       </Container>

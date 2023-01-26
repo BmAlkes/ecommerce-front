@@ -29,6 +29,10 @@ export const RightArea = styled.div`
   justify-content: center;
   align-items: center;
   flex: 1;
+
+  p {
+    margin-top: 10px;
+  }
 `;
 
 export const LoginHeadline = styled.p`
@@ -59,12 +63,14 @@ export const LoginContent = styled.div`
 export const LoginSubtitle = styled.p`
   color: ${(props) => props.theme.colors.blackColor};
   padding-bottom: 20px;
-  border-bottom: 1px solid #6c757d;
-  width: 100%;
-  margin-top: 20px;
-  text-align: center;
   font-weight: 500;
+  width: 100%;
+  margin-top: 20px !important;
+  text-align: center;
   margin-bottom: 20px;
+  a {
+    color: ${(props) => props.theme.colors.primaryColor};
+  }
 `;
 
 export const LoginInputContainer = styled.div`

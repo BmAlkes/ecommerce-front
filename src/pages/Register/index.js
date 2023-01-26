@@ -1,38 +1,54 @@
 import React from "react";
-import { Container } from "./styles";
+import {
+  Container,
+  LeftArea,
+  LoginContent,
+  LoginHeadline,
+  LoginInputContainer,
+  LoginSubtitle,
+  RightArea,
+} from "./styles";
 import nike from "../../assets/imgs/nike2.png";
 
-import { Envelope, Lock } from "styled-icons/bootstrap";
+import Header from "../../components/Header";
+import Button from "../../components/CustomButton";
+import CustomInput from "../../components/Input";
 import { Link } from "react-router-dom";
 
 const Register = () => {
   return (
-    <Container>
-      <div className="leftArea">
-        <p>Bshop</p>
-        <img src={nike} alt="" />
-      </div>
-      <div className="rightArea">
-        <form>
-          <h2>Register</h2>
-          <div className="input-field">
-            <Envelope className="icons" />
-            <input type="text" placeholder="Email" id="email" />
-          </div>
-          <div className="input-field">
-            <Lock className="icons" />
-            <input type="text" placeholder="password" id="password" />
-          </div>
-          <button>Register</button>
-        </form>
-        <p>
-          Have a Account?{" "}
-          <Link to="/login">
-            <span>Login</span>
-          </Link>
-        </p>
-      </div>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <LeftArea>
+          <img src={nike} alt="" />
+        </LeftArea>
+        <RightArea>
+          <LoginHeadline>Register</LoginHeadline>
+          <LoginContent>
+            <LoginInputContainer>
+              <CustomInput placeholder=" Enter your Name"></CustomInput>
+            </LoginInputContainer>
+            <LoginInputContainer>
+              <CustomInput placeholder=" Enter your LastName"></CustomInput>
+            </LoginInputContainer>
+            <LoginInputContainer>
+              <CustomInput placeholder="Enter your Email"></CustomInput>
+            </LoginInputContainer>
+            <LoginInputContainer>
+              <CustomInput placeholder="Enter your Password"></CustomInput>
+            </LoginInputContainer>
+            <LoginInputContainer>
+              <CustomInput placeholder="Confirm Password "></CustomInput>
+            </LoginInputContainer>
+            <Button>Enter</Button>
+            <LoginSubtitle>
+              Have a account? <Link to="/login">Login</Link>
+            </LoginSubtitle>
+          </LoginContent>
+        </RightArea>
+      </Container>
+    </>
   );
 };
 
