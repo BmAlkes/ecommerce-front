@@ -1,26 +1,50 @@
 import React from "react";
-import { Container } from "./styles";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import { Bag, Person } from "styled-icons/bootstrap";
 import { Heart } from "styled-icons/fa-solid";
+import { Exit } from "styled-icons/boxicons-regular";
+import {
+  Container,
+  HeaderItemsContainer,
+  HeaderItem,
+  HeaderTitle,
+} from "./styles";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleLoginPage = () => {
+    navigate("/login"); //
+  };
+  const handleHome = () => {
+    navigate("/"); //
+  };
+
+  const handleRegister = () => {
+    navigate("/register"); //
+  };
+
   return (
     <Container>
-      <Link to={"/"}>
-        <p>Bshop</p>
-      </Link>
-      <ul className="listIcon">
-        <li>
+      <HeaderTitle onClick={handleHome}>BSHOP</HeaderTitle>
+      <HeaderItemsContainer>
+        <HeaderItem>
           <Person />
-        </li>
-        <li>
-          <Bag />
-        </li>
-        <li>
+        </HeaderItem>
+        <HeaderItem>
           <Heart />
-        </li>
-      </ul>
+        </HeaderItem>
+        <HeaderItem>
+          <Exit />
+        </HeaderItem>
+        <HeaderItem>
+          <Bag />
+          <span>2</span>
+        </HeaderItem>
+        <HeaderItem onClick={handleRegister}>Register</HeaderItem>
+        <HeaderItem onClick={handleLoginPage}>Login</HeaderItem>
+      </HeaderItemsContainer>
     </Container>
   );
 };

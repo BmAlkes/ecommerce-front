@@ -1,8 +1,8 @@
 import React from "react";
 import { Container } from "./styles";
 import Nike from "../../assets/imgs/nike2.png";
-import Button from "../Button";
 import { RightArrowAlt } from "styled-icons/boxicons-regular";
+import Button from "../CustomButton";
 
 const Hero = () => {
   return (

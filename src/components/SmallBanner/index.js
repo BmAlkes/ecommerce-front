@@ -1,6 +1,6 @@
 import React from "react";
+import Button from "../CustomButton";
 import { Container } from "./styles";
-import Button from "../../components/Button";
 
 const SmallBanner = ({ img }) => {
   return (

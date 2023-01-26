@@ -52,7 +52,7 @@ function Home() {
         <BigBanner img={nike3} />
         <footer>
           <p> Created by: Bruno Malkes 2022 © all rights reserved</p>
-          <p>Design by:Edmar Alencar 2022 © Todos os direitos reservados</p>
+          <p>Design by:Edmar Alencar 2022 © All Rights reserved</p>
         </footer>
       </Wrapper>
     </>

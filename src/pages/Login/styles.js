@@ -1,112 +1,78 @@
 import styled from "styled-components";
 
-const Container = styled.div`
-  max-width: 1440px;
+export const Container = styled.div`
+  width: 100vw;
   margin: 0 auto;
-  height: 100vh;
+  height: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const LeftArea = styled.div`
+  height: 100%;
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(108, 108, 255, 0.08);
 
-  .leftArea {
-    max-width: 720px;
-    background-color: rgba(108, 108, 255, 0.08);
-    p {
-      color: ${(props) => props.theme.colors.primaryColor};
-      font-weight: bold;
-      font-size: 32px;
-      margin: 38px 575px 183px 54px;
-    }
-    img {
-      margin: 259px 54px 258px 54px;
-    }
-  }
-  .rightArea {
-    max-width: 720px;
-    height: 100vh;
+  img {
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    flex: 1;
-    form {
-      display: flex;
-      flex-direction: column;
-      max-width: 380px;
-      margin: 0 auto;
-    }
-
-    h2 {
-      font-size: 26px;
-      font-weight: 500;
-      margin-bottom: 26px;
-      border-left: 7px solid #f4f4ff;
-      padding-left: 11px;
-    }
-
-    .input-field {
-      display: flex;
-      margin-bottom: 10px;
-    }
-    .input-field svg {
-      width: 1.8rem;
-      padding: 2px;
-      z-index: 10;
-    }
-    input {
-      max-width: 380px;
-      height: 50px;
-      width: 100%;
-      border: none;
-      background-color: ${(props) => props.theme.colors.line};
-      margin-left: -30px;
-      padding-left: 40px;
-    }
-
-    button {
-      background-color: ${(props) => props.theme.colors.primaryColor};
-      color: ${(props) => props.theme.colors.whiteColor};
-      width: 379px;
-      height: 55px;
-      font-size: 16px;
-      line-height: 1.36;
-      border: none;
-      margin: 0 auto;
-      margin-bottom: 43px;
-    }
-    p {
-      text-align: center;
-    }
-    span {
-      color: ${(props) => props.theme.colors.primaryColor};
-      font-weight: 700;
-    }
+    max-width: 720px;
   }
-  @media (max-width: 768px) {
-    flex-direction: column-reverse;
-    .leftArea {
-      text-align: center;
-    }
-    .leftArea p {
-      margin: 20px auto;
-      margin-bottom: 80px;
-    }
+`;
+export const RightArea = styled.div`
+  height: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`;
 
-    .leftArea img {
-      margin: 30px;
-      width: 300px;
-    }
-    .rightArea {
-      margin: 10px;
-      form {
-        width: 350px;
-        margin: 30px auto;
-      }
-      button {
-        width: 350px;
-      }
-    }
+export const LoginHeadline = styled.p`
+  font-weight: 600;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: ${(props) => props.theme.colors.blackColorr};
+  position: relative;
+
+  &::after {
+    content: "";
+    width: 5px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: -15px;
+    background: #f4f4ff;
   }
 `;
 
-export { Container };
+export const LoginContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 550px;
+`;
+
+export const LoginSubtitle = styled.p`
+  color: ${(props) => props.theme.colors.blackColor};
+  padding-bottom: 20px;
+  border-bottom: 1px solid #6c757d;
+  width: 100%;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 20px;
+`;
+
+export const LoginInputContainer = styled.div`
+  width: 100%;
+  margin-bottom: 20px;
+  max-width: 300px;
+  p:nth-child(1) {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+`;

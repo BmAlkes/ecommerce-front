@@ -1,38 +1,46 @@
 import React from "react";
-import { Container } from "./styles";
+import {
+  Container,
+  LeftArea,
+  RightArea,
+  LoginContent,
+  LoginHeadline,
+  LoginInputContainer,
+  LoginSubtitle,
+} from "./styles";
 import nike from "../../assets/imgs/nike2.png";
+import Header from "../../components/Header";
+import { BsGoogle } from "react-icons/bs";
 
-import { Envelope, Lock } from "styled-icons/bootstrap";
-import { Link } from "react-router-dom";
+// styles
+import Button from "../../components/CustomButton";
+import CustomInput from "../../components/Input";
 
 const Login = () => {
   return (
-    <Container>
-      <div className="leftArea">
-        <p>Bshop</p>
-        <img src={nike} alt="" />
-      </div>
-      <div className="rightArea">
-        <form>
-          <h2>Login</h2>
-          <div className="input-field">
-            <Envelope className="icons" />
-            <input type="text" placeholder="Email" id="email" />
-          </div>
-          <div className="input-field">
-            <Lock className="icons" />
-            <input type="text" placeholder="password" id="password" />
-          </div>
-          <button>Login</button>
-        </form>
-        <p>
-          Don't have a Account?{" "}
-          <Link to="/register">
-            <span>Register</span>
-          </Link>
-        </p>
-      </div>
-    </Container>
+    <>
+      <Header />
+      <Container>
+        <LeftArea>
+          <img src={nike} alt="" />
+        </LeftArea>
+        <RightArea>
+          <LoginHeadline>Login</LoginHeadline>
+          <LoginContent>
+            <Button props={<BsGoogle size={16} />}>Enter With Google</Button>
+            <LoginSubtitle>Or enter with your email</LoginSubtitle>
+            <LoginInputContainer>
+              <CustomInput placeholder="Email"></CustomInput>
+            </LoginInputContainer>
+            <LoginInputContainer>
+              <CustomInput placeholder="Password"></CustomInput>
+            </LoginInputContainer>
+
+            <Button>Enter</Button>
+          </LoginContent>
+        </RightArea>
+      </Container>
+    </>
   );
 };
 

@@ -1,5 +1,6 @@
 import React from "react";
-import Button from "../Button";
+import Button from "../CustomButton";
+
 import { Container } from "./styles";
 
 const BigBanner = ({ img }) => {

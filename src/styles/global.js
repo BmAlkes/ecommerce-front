@@ -8,6 +8,18 @@ export const GlobalStyles = createGlobalStyle`
         padding: 0;
         font-family: 'Lexend', sans-serif;
     }
+
+    #root{
+       display :flex;
+       flex-direction: column;
+       height: 100%;
+    }
+
+    html,body{
+        height: 100%;
+    }
+
+
     ul{
         list-style: none;
     }
@@ -15,6 +27,6 @@ export const GlobalStyles = createGlobalStyle`
         text-decoration: none;
     }
     img{
-        max-width: 100%;
+        width: 100%;
     }
 `;

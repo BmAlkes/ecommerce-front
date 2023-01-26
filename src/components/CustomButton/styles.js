@@ -1,12 +1,14 @@
 import styled, { css } from "styled-components";
 
-const Container = styled.button`
+export const CustomButtonContainer = styled.button`
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-size: 18px;
-  width: 194px;
+  width: 100%;
   padding: 12px 20px;
+  font-weight: 200;
+  max-width: 300px;
 
   svg {
     width: 28px;
@@ -21,4 +23,9 @@ const Container = styled.button`
   background-color: ${(props) => props.theme.colors.primaryColor};
   text-transform: uppercase;
 `;
-export { Container };
+export const IconContainer = styled.div`
+  margin-right: 8px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+`;
