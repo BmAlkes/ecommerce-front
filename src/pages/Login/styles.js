@@ -63,8 +63,9 @@ export const LoginContent = styled.div`
 export const LoginSubtitle = styled.p`
   color: ${(props) => props.theme.colors.blackColor};
   padding-bottom: 20px;
+  border-bottom: 1px solid black;
   font-weight: 500;
-  width: 100%;
+  width: 70%;
   margin-top: 20px !important;
   text-align: center;
   margin-bottom: 20px;

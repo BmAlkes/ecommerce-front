@@ -13,9 +13,11 @@ import Header from "../../components/Header";
 import { BsGoogle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import validator from "validator";
 // styles
 import Button from "../../components/CustomButton";
 import CustomInput from "../../components/Input";
+import InputError from "../../components/InputErrorMessage";
 
 const Login = () => {
   const {
@@ -51,8 +53,18 @@ const Login = () => {
                 placeholder="Enter your email"
                 {...register("email", {
                   required: true,
+                  validate: (value) => {
+                    return validator.isEmail(value);
+                  },
                 })}
-              ></CustomInput>
+              />
+
+              {errors.email?.type === "required" && (
+                <InputError>Email required</InputError>
+              )}
+              {errors.email?.type === "validate" && (
+                <InputError>Email Invalid</InputError>
+              )}
             </LoginInputContainer>
             <LoginInputContainer>
               <p>Password</p>
@@ -61,6 +73,9 @@ const Login = () => {
                 placeholder="Enter your password"
                 {...register("password", { required: true })}
               ></CustomInput>
+              {errors.password?.type === "required" && (
+                <InputError> Password required</InputError>
+              )}
             </LoginInputContainer>
             <Button onClick={() => handleSubmit(handleSubmitPress)()}>
               Enter
