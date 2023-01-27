@@ -13,10 +13,6 @@ export const CustomButtonContainer = styled.button`
   &:hover {
     cursor: pointer;
   }
-
-  svg {
-    width: 28px;
-  }
   ${(props) =>
     props.primary &&
     css`
@@ -33,3 +29,5 @@ export const IconContainer = styled.div`
   display: flex;
   align-items: center;
 `;
+
+export const NewButton = styled.button``;

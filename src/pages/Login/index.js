@@ -26,11 +26,6 @@ const Login = () => {
 
   const handleSubmitPress = (data) => {
     console.log(data);
-    console.log("funciona");
-  };
-
-  const handleMsg = () => {
-    console.log("msg");
   };
 
   console.log({ errors });
@@ -44,23 +39,32 @@ const Login = () => {
         <RightArea>
           <LoginHeadline>Login</LoginHeadline>
           <LoginContent>
-            <Button props={<BsGoogle size={16} />}>Enter With Google</Button>
+            <Button>
+              <BsGoogle size={16} />
+              Enter With Google
+            </Button>
             <LoginSubtitle>Or enter with your email</LoginSubtitle>
             <LoginInputContainer>
+              <p>Email</p>
               <CustomInput
-                placeholder="Email"
+                hasError={!!errors.email}
+                placeholder="Enter your email"
                 {...register("email", {
                   required: true,
                 })}
               ></CustomInput>
             </LoginInputContainer>
             <LoginInputContainer>
+              <p>Password</p>
               <CustomInput
-                placeholder="Password"
+                hasError={!!errors.password}
+                placeholder="Enter your password"
                 {...register("password", { required: true })}
               ></CustomInput>
             </LoginInputContainer>
-            <Button onClick={handleMsg}>Enter</Button>
+            <Button onClick={() => handleSubmit(handleSubmitPress)()}>
+              Enter
+            </Button>
             <LoginSubtitle>
               Don't have a account? <Link to="/register">Register Please</Link>
             </LoginSubtitle>

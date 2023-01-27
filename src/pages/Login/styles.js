@@ -79,6 +79,7 @@ export const LoginInputContainer = styled.div`
   max-width: 300px;
   p:nth-child(1) {
     font-weight: 600;
+    font-size: 0.875rem;
     margin-bottom: 5px;
   }
 `;

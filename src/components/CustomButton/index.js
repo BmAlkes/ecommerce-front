@@ -1,10 +1,9 @@
 import React from "react";
 import { CustomButtonContainer, IconContainer } from "./styles";
 
-const Button = ({ children, props }) => {
+const Button = ({ children, ...props }) => {
   return (
-    <CustomButtonContainer primary props>
-      {props && <IconContainer>{props}</IconContainer>}
+    <CustomButtonContainer primary {...props}>
       {children}
     </CustomButtonContainer>
   );
