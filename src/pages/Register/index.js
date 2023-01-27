@@ -15,9 +15,23 @@ import Header from "../../components/Header";
 import Button from "../../components/CustomButton";
 import CustomInput from "../../components/Input";
 import { Link } from "react-router-dom";
+import validator from "validator";
+import InputError from "../../components/InputErrorMessage";
 
 const Register = () => {
-  const { register } = useForm();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+    watch,
+  } = useForm();
+
+  const watchPassword = watch("password");
+
+  const handleSubmitPress = (data) => {
+    console.log(data);
+  };
+  console.log({ errors });
 
   return (
     <>
@@ -30,21 +44,84 @@ const Register = () => {
           <LoginHeadline>Register</LoginHeadline>
           <LoginContent>
             <LoginInputContainer>
-              <CustomInput placeholder=" Enter your Name"></CustomInput>
+              <p>Name</p>
+              <CustomInput
+                hasError={!!errors.name}
+                placeholder=" Enter your Name"
+                {...register("name", { required: true })}
+              />
+              {errors.name?.type === "required" && (
+                <InputError>Name required</InputError>
+              )}
+              {errors.email?.type === "validate" && (
+                <InputError>Email Invalid</InputError>
+              )}
             </LoginInputContainer>
             <LoginInputContainer>
-              <CustomInput placeholder=" Enter your LastName"></CustomInput>
+              <p>LastName</p>
+              <CustomInput
+                hasError={!!errors.lastname}
+                placeholder=" Enter your LastName"
+                {...register("lastname", { required: true })}
+              />
+              {errors.lastname?.type === "required" && (
+                <InputError> LastName required</InputError>
+              )}
             </LoginInputContainer>
             <LoginInputContainer>
-              <CustomInput placeholder="Enter your Email"></CustomInput>
+              <p>Email</p>
+              <CustomInput
+                type="email"
+                hasError={!!errors.email}
+                placeholder="Enter your email"
+                {...register("email", {
+                  required: true,
+                  validate: (value) => {
+                    return validator.isEmail(value);
+                  },
+                })}
+              />
+              {errors.email?.type === "required" && (
+                <InputError>Email required</InputError>
+              )}
+              {errors.email?.type === "validate" && (
+                <InputError>Email Invalid</InputError>
+              )}
             </LoginInputContainer>
             <LoginInputContainer>
-              <CustomInput placeholder="Enter your Password"></CustomInput>
+              <p>Password</p>
+              <CustomInput
+                type="password"
+                hasError={!!errors.password}
+                placeholder="Enter your Password"
+                {...register("password", { required: true })}
+              />
+              {errors.password?.type === "required" && (
+                <InputError> Password required</InputError>
+              )}
             </LoginInputContainer>
             <LoginInputContainer>
-              <CustomInput placeholder="Confirm Password "></CustomInput>
+              <p>Confirm Password</p>
+              <CustomInput
+                hasError={!!errors.password2}
+                type="password"
+                placeholder="Confirm Password "
+                {...register("password2", {
+                  required: true,
+                  validate: (value) => {
+                    return value === watchPassword;
+                  },
+                })}
+              />
+              {errors?.password2?.type === "validate" && (
+                <InputError>
+                  Confirmation password need to be the same as password
+                </InputError>
+              )}
             </LoginInputContainer>
-            <Button>Enter</Button>
+            <Button onClick={() => handleSubmit(handleSubmitPress)()}>
+              Enter
+            </Button>
             <LoginSubtitle>
               Have a account? <Link to="/login">Login</Link>
             </LoginSubtitle>
