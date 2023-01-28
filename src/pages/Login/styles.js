@@ -7,6 +7,11 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 `;
 export const LeftArea = styled.div`
   height: 100%;
@@ -57,7 +62,7 @@ export const LoginContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 550px;
+  width: 70%;
 `;
 
 export const LoginSubtitle = styled.p`
@@ -77,7 +82,6 @@ export const LoginSubtitle = styled.p`
 export const LoginInputContainer = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  max-width: 300px;
   p:nth-child(1) {
     font-weight: 600;
     font-size: 0.875rem;

@@ -8,7 +8,8 @@ const Container = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 90px;
+  margin-top: 40px;
+  padding: 20px;
 
   @media (max-width: 767px) {
     flex-direction: column;

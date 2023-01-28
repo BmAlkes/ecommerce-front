@@ -1,12 +1,19 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 100vw;
+  width: 100%;
   margin: 0 auto;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    margin-top: 100px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const LeftArea = styled.div`
@@ -58,7 +65,7 @@ export const LoginContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 550px;
+  width: 70%;
 `;
 
 export const LoginSubtitle = styled.p`
@@ -77,7 +84,6 @@ export const LoginSubtitle = styled.p`
 export const LoginInputContainer = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  max-width: 300px;
   p:nth-child(1) {
     font-weight: 600;
     margin-bottom: 5px;

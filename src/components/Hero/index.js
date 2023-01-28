@@ -12,7 +12,7 @@ const Hero = () => {
         <p>Buy the best sneakers on the market, best quality, free delivery</p>
         <Button>
           Buy now
-          <RightArrowAlt />
+          <RightArrowAlt size={50} />
         </Button>
       </div>
       <div className="container2">

@@ -22,6 +22,10 @@ const Container = styled.div`
     border: 1px solid ${(props) => props.theme.colors.secondaryColor};
     border-radius: 7px;
     padding: 5px;
+    cursor: pointer;
+  }
+  svg.like:hover {
+    color: ${(props) => props.theme.colors.error};
   }
   .block div svg:first-child {
     margin-right: 16px;

@@ -9,7 +9,7 @@ const SquareProduct = ({ img, text, price }) => {
       <div className="block">
         <div>
           <Bag />
-          <Heart />
+          <Heart className="like" />
         </div>
         <img src={img} alt={img} />
       </div>
