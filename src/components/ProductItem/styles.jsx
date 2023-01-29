@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ProductContainer = styled.div`
   display: flex;
   flex-direction: column;
+
   .block div {
     display: flex;
     align-items: center;
@@ -27,9 +28,9 @@ export const ProductContainer = styled.div`
 export const ProductInfo = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 5px;
+  margin-top: 1rem;
   p {
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 500;
   }
 `;
