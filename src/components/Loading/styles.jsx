@@ -8,6 +8,7 @@ export const LoadingContainer = styled.div`
   height: 100vh;
   width: 100vw;
   background-color: ${theme.colors.primaryColor};
+  opacity: 0.5;
   display: flex;
   align-items: center;
   justify-content: center;

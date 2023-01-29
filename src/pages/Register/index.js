@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   Container,
   LeftArea,
@@ -21,9 +21,11 @@ import { createUserWithEmailAndPassword, AuthErrorCodes } from "firebase/auth";
 import { auth, db } from "../../config/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
 import { AuthContext } from "../../context/AuthContext";
+import Loading from "../../components/Loading";
 
 const Register = () => {
   const { isAutheticated } = useContext(AuthContext);
+  const [isLoading, setIsloading] = useState(false);
   const navigate = useNavigate();
   const {
     register,
@@ -43,6 +45,7 @@ const Register = () => {
 
   const handleSubmitPress = async (data) => {
     try {
+      setIsloading(true);
       const userCredentials = await createUserWithEmailAndPassword(
         auth,
         data.email,
@@ -61,6 +64,8 @@ const Register = () => {
       if (_error.code === AuthErrorCodes.EMAIL_EXISTS) {
         return setError("email", { type: "alredyInUse" });
       }
+    } finally {
+      setIsloading(false);
     }
   };
   console.log({ errors });
@@ -68,6 +73,7 @@ const Register = () => {
   return (
     <>
       <Header />
+      {isLoading && <Loading />}
       <Container>
         <LeftArea>
           <img src={nike} alt="" />
