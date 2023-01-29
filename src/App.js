@@ -9,8 +9,14 @@ import Products from "./pages/Products";
 import Register from "./pages/Register";
 import Product from "./pages/Product";
 import theme from "./styles/theme";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "./config/firebase.config";
 
 function App() {
+  onAuthStateChanged(auth, (user) => {
+    console.log(user);
+  });
+
   return (
     <ThemeProvider theme={theme}>
       <AuthProvider>

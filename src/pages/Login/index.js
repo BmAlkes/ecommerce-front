@@ -18,18 +18,34 @@ import validator from "validator";
 import Button from "../../components/CustomButton";
 import CustomInput from "../../components/Input";
 import InputError from "../../components/InputErrorMessage";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { AuthErrorCodes, signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../config/firebase.config";
 
 const Login = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    setError,
   } = useForm();
 
   const handleSubmitPress = async (data) => {
     try {
-    } catch (err) {}
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+      console.log(userCredential);
+    } catch (err) {
+      const _error = err;
+      if (_error.code === AuthErrorCodes.INVALID_PASSWORD) {
+        return setError("password", { type: "mismatch" });
+      }
+      if (_error.code === AuthErrorCodes.USER_DELETED) {
+        return setError("email", { type: "notFound" });
+      }
+    }
   };
 
   console.log({ errors });
@@ -51,6 +67,7 @@ const Login = () => {
             <LoginInputContainer>
               <p>Email</p>
               <CustomInput
+                type="email"
                 hasError={!!errors.email}
                 placeholder="Enter your email"
                 {...register("email", {
@@ -64,19 +81,23 @@ const Login = () => {
               {errors.email?.type === "required" && (
                 <InputError>Email required</InputError>
               )}
-              {errors.email?.type === "validate" && (
-                <InputError>Email Invalid</InputError>
+              {errors.email?.type === "notFound" && (
+                <InputError>Email not found</InputError>
               )}
             </LoginInputContainer>
             <LoginInputContainer>
               <p>Password</p>
               <CustomInput
+                type="password"
                 hasError={!!errors.password}
                 placeholder="Enter your password"
                 {...register("password", { required: true })}
               ></CustomInput>
               {errors.password?.type === "required" && (
                 <InputError> Password required</InputError>
+              )}
+              {errors.password?.type === "mismatch" && (
+                <InputError> Password invalid</InputError>
               )}
             </LoginInputContainer>
             <Button onClick={() => handleSubmit(handleSubmitPress)()}>

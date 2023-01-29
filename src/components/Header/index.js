@@ -10,6 +10,8 @@ import {
   HeaderItem,
   HeaderTitle,
 } from "./styles";
+import { signOut } from "firebase/auth";
+import { auth } from "../../config/firebase.config";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -36,7 +38,7 @@ const Header = () => {
           <Heart />
         </HeaderItem>
         <HeaderItem>
-          <Exit />
+          <Exit onClick={() => signOut(auth)} />
         </HeaderItem>
         <HeaderItem>
           <Bag />
