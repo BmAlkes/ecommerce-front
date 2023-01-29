@@ -18,8 +18,14 @@ import validator from "validator";
 import Button from "../../components/CustomButton";
 import CustomInput from "../../components/Input";
 import InputError from "../../components/InputErrorMessage";
-import { AuthErrorCodes, signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../config/firebase.config";
+import {
+  AuthErrorCodes,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+} from "firebase/auth";
+import { auth, db, googleProvider } from "../../config/firebase.config";
+import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
 
 const Login = () => {
   const {
@@ -48,6 +54,32 @@ const Login = () => {
     }
   };
 
+  const handleSignInWithGoogle = async () => {
+    try {
+      const userCredentials = await signInWithPopup(auth, googleProvider);
+      const querySnapshot = await getDocs(
+        query(
+          collection(db, "users"),
+          where("id", "==", userCredentials.user.uid)
+        )
+      );
+      const user = querySnapshot.docs[0]?.data;
+      if (!user) {
+        const firstname = userCredentials.user.displayName?.split(" ")[0];
+        const lastname = userCredentials.user.displayName?.split(" ")[1];
+        await addDoc(collection(db, "users"), {
+          id: userCredentials.user.uid,
+          email: userCredentials.user.email,
+          firstname,
+          lastname,
+          provider: "google",
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   console.log({ errors });
   return (
     <>
@@ -59,7 +91,7 @@ const Login = () => {
         <RightArea>
           <LoginHeadline>Login</LoginHeadline>
           <LoginContent>
-            <Button>
+            <Button onClick={handleSignInWithGoogle}>
               <BsGoogle size={16} />
               Enter With Google
             </Button>

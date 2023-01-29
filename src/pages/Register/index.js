@@ -49,6 +49,7 @@ const Register = () => {
         name: data.name,
         lastname: data.lastname,
         email: userCredentials.user.email,
+        provider: "firebase",
       });
     } catch (error) {
       const _error = error;
