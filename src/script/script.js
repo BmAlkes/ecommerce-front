@@ -133,7 +133,7 @@ const products = [
     ],
   },
   {
-    id: "6228f760b7e6cb904bbe012e",
+    id: "6228f760b7e6cb904bbe012e1",
     name: "Banner 2",
     displayName: "Mens",
     imageUrl:
@@ -141,28 +141,28 @@ const products = [
     phrase: "View men's clothing collection",
     products: [
       {
-        id: "6228f7a3b7e6cb904bbe0134",
+        id: "6228f7a3b7e6cb904bbe01342",
         name: "Hard rock cafe",
         price: 350,
         imageUrl:
           "https://images.unsplash.com/photo-1596033389783-d31ed0c54440?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
       },
       {
-        id: "6228f93db7e6cb904bbe0140",
+        id: "6228f93db7e6cb904bbe01403",
         name: "Black Retro",
         price: 900,
         imageUrl:
           "https://images.unsplash.com/photo-1567729714706-0681d0c05872?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
       },
       {
-        id: "6228f8c7b7e6cb904bbe013b",
+        id: "6228f8c7b7e6cb904bbe013b4",
         name: "Infuse black tshirt",
         price: 200,
         imageUrl:
           "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=830&q=80",
       },
       {
-        id: "6228f96bb7e6cb904bbe0142",
+        id: "6228f96bb7e6cb904bbe01425",
         name: "black risk tshirt",
         price: 100,
         imageUrl:

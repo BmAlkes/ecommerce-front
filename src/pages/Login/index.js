@@ -18,6 +18,7 @@ import validator from "validator";
 import Button from "../../components/CustomButton";
 import CustomInput from "../../components/Input";
 import InputError from "../../components/InputErrorMessage";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const {
@@ -26,8 +27,9 @@ const Login = () => {
     handleSubmit,
   } = useForm();
 
-  const handleSubmitPress = (data) => {
-    console.log(data);
+  const handleSubmitPress = async (data) => {
+    try {
+    } catch (err) {}
   };
 
   console.log({ errors });

@@ -17,6 +17,9 @@ import CustomInput from "../../components/Input";
 import { Link } from "react-router-dom";
 import validator from "validator";
 import InputError from "../../components/InputErrorMessage";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "../../config/firebase.config";
+import { addDoc, collection } from "firebase/firestore";
 
 const Register = () => {
   const {
@@ -28,8 +31,23 @@ const Register = () => {
 
   const watchPassword = watch("password");
 
-  const handleSubmitPress = (data) => {
-    console.log(data);
+  const handleSubmitPress = async (data) => {
+    try {
+      const userCredentials = await createUserWithEmailAndPassword(
+        auth,
+        data.email,
+        data.password
+      );
+      console.log(userCredentials);
+      await addDoc(collection(db, "users"), {
+        id: userCredentials.user.uid,
+        name: data.name,
+        lastname: data.lastname,
+        email: userCredentials.user.email,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
   console.log({ errors });
 
@@ -52,9 +70,6 @@ const Register = () => {
               />
               {errors.name?.type === "required" && (
                 <InputError>Name required</InputError>
-              )}
-              {errors.email?.type === "validate" && (
-                <InputError>Email Invalid</InputError>
               )}
             </LoginInputContainer>
             <LoginInputContainer>

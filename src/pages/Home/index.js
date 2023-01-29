@@ -7,8 +7,29 @@ import nike from "../../assets/imgs/nike2.png";
 import nike3 from "../../assets/imgs/nike3.png";
 import SmallBanner from "../../components/SmallBanner";
 import BigBanner from "../../components/BigBanner";
+import { getDocs, collection } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { db } from "../../config/firebase.config";
 
 function Home() {
+  const [categories, setCategories] = useState([]);
+
+  const fetchCategories = async () => {
+    try {
+      const categoriesFromFirestore = [];
+      const querySnapshot = await getDocs(collection(db, "categories"));
+      querySnapshot.forEach((doc) => {
+        categoriesFromFirestore.push(doc.data());
+      });
+      setCategories(categoriesFromFirestore);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   return (
     <>
       <Wrapper>
@@ -21,12 +42,9 @@ function Home() {
           </p>
         </div>
         <div className="squareProduct">
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
+          {categories.map((category) => {
+            return console.log(category);
+          })}
         </div>
         <div className="banner">
           <SmallBanner img={nike3} />
@@ -39,6 +57,7 @@ function Home() {
           </p>
         </div>
         <div className="squareProduct">
+          {/* <SquareProduct text={"Air Max 90"} price={300} img={nike} />
           <SquareProduct text={"Air Max 90"} price={300} img={nike} />
           <SquareProduct text={"Air Max 90"} price={300} img={nike} />
           <SquareProduct text={"Air Max 90"} price={300} img={nike} />
@@ -46,8 +65,7 @@ function Home() {
           <SquareProduct text={"Air Max 90"} price={300} img={nike} />
           <SquareProduct text={"Air Max 90"} price={300} img={nike} />
           <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-          <SquareProduct text={"Air Max 90"} price={300} img={nike} />
+          <SquareProduct text={"Air Max 90"} price={300} img={nike} /> */}
         </div>
         <BigBanner img={nike3} />
         <footer>

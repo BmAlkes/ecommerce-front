@@ -30,8 +30,8 @@ export const Wrapper = styled.main`
     }
   }
   .squareProduct {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    grid-template-columns: repeat(3, 1fr) !important;
     gap: 20px;
     flex-wrap: wrap;
   }

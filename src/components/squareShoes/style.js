@@ -4,10 +4,12 @@ const Container = styled.div`
   width: 370px;
   height: 432px;
   margin-bottom: 67px;
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
 
   .block {
-    background-color: ${(props) => props.theme.colors.backgroundColor};
+    /* background-color: ${(props) => props.theme.colors.backgroundColor}; */
   }
+
   .block div {
     display: flex;
     align-items: center;
@@ -31,11 +33,14 @@ const Container = styled.div`
     margin-right: 16px;
   }
   img {
-    padding: 39px 16px 75px 17px;
+    padding: 10px;
+    width: 100%;
+    object-fit: contain;
+    aspect-ratio: 16/9;
   }
   p {
     font-size: 24px;
-    margin: 16px 0px;
+    margin: 16px auto;
   }
   span {
     color: ${(props) => props.theme.colors.textColor};
