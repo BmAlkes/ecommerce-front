@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { Bag, Person } from "styled-icons/bootstrap";
@@ -12,8 +12,11 @@ import {
 } from "./styles";
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
+import { AuthContext } from "../../context/AuthContext";
 
 const Header = () => {
+  const { isAutheticated } = useContext(AuthContext);
+
   const navigate = useNavigate();
 
   const handleLoginPage = () => {
@@ -31,21 +34,29 @@ const Header = () => {
     <Container>
       <HeaderTitle onClick={handleHome}>BSHOP</HeaderTitle>
       <HeaderItemsContainer>
-        <HeaderItem>
-          <Person />
-        </HeaderItem>
-        <HeaderItem>
-          <Heart />
-        </HeaderItem>
-        <HeaderItem>
-          <Exit onClick={() => signOut(auth)} />
-        </HeaderItem>
-        <HeaderItem>
-          <Bag />
-          <span>2</span>
-        </HeaderItem>
-        <HeaderItem onClick={handleRegister}>Register</HeaderItem>
-        <HeaderItem onClick={handleLoginPage}>Login</HeaderItem>
+        {isAutheticated && (
+          <>
+            <HeaderItem>
+              <Person />
+            </HeaderItem>
+            <HeaderItem>
+              <Heart />
+            </HeaderItem>
+            <HeaderItem>
+              <Bag />
+              <span>2</span>
+            </HeaderItem>
+            <HeaderItem>
+              <Exit onClick={() => signOut(auth)} />
+            </HeaderItem>
+          </>
+        )}
+        {!isAutheticated && (
+          <>
+            <HeaderItem onClick={handleRegister}>Register</HeaderItem>
+            <HeaderItem onClick={handleLoginPage}>Login</HeaderItem>
+          </>
+        )}
       </HeaderItemsContainer>
     </Container>
   );

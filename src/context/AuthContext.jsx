@@ -1,11 +1,29 @@
-const { createContext, useContext } = require("react");
+import { useState, createContext } from "react";
 
-const AuthContext = createContext();
+export const AuthContext = createContext({
+  currentUser: null,
+  isAutheticated: false,
+  loginUser: () => {},
+  logoutUser: () => {},
+});
 
 export function AuthProvider({ children }) {
-  return <AuthContext.Provider value={{}}>{children}</AuthContext.Provider>;
-}
+  const [currentUser, setCurrentUser] = useState(null);
+  const isAutheticated = currentUser !== null;
 
-export function useAuth() {
-  return useContext(AuthContext);
+  const loginUser = (user) => {
+    setCurrentUser(user);
+  };
+
+  const logoutUser = () => {
+    setCurrentUser(null);
+  };
+
+  return (
+    <AuthContext.Provider
+      value={{ currentUser, isAutheticated, loginUser, logoutUser }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }
