@@ -10,16 +10,20 @@ import Product from "./pages/Product";
 import theme from "./styles/theme";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./config/firebase.config";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import Loading from "./components/Loading";
 
 function App() {
+  const [isInitializing, setIsInitializing] = useState(true);
+
   const { currentUser, isAutheticated, loginUser, logoutUser } =
     useContext(AuthContext);
   onAuthStateChanged(auth, async (user) => {
     const isSignout = isAutheticated && !user;
     if (isSignout) {
-      return logoutUser();
+      logoutUser();
+      return setIsInitializing(false);
     }
     const isSignIn = !isAutheticated && user;
     if (isSignIn) {
@@ -27,11 +31,14 @@ function App() {
         query(collection(db, "users"), where("id", "==", user.uid))
       );
       const userFromFireStore = querySnapshot.docs[0]?.data();
-      return loginUser(userFromFireStore);
+      loginUser(userFromFireStore);
+      return setIsInitializing(false);
     }
+    return setIsInitializing(false);
   });
 
   console.log({ currentUser });
+  if (isInitializing) return <Loading />;
 
   return (
     <ThemeProvider theme={theme}>
