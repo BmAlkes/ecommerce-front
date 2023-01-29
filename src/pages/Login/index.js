@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Container,
   LeftArea,
@@ -11,7 +11,7 @@ import {
 import nike from "../../assets/imgs/nike2.png";
 import Header from "../../components/Header";
 import { BsGoogle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import validator from "validator";
 // styles
@@ -26,14 +26,23 @@ import {
 } from "firebase/auth";
 import { auth, db, googleProvider } from "../../config/firebase.config";
 import { addDoc, collection, getDocs, query, where } from "firebase/firestore";
+import { AuthContext } from "../../context/AuthContext";
 
 const Login = () => {
+  const { isAutheticated } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
     handleSubmit,
     setError,
   } = useForm();
+
+  useEffect(() => {
+    if (isAutheticated) {
+      navigate("/");
+    }
+  }, [isAutheticated]);
 
   const handleSubmitPress = async (data) => {
     try {

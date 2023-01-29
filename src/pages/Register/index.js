@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import {
   Container,
   LeftArea,
@@ -14,18 +14,17 @@ import nike from "../../assets/imgs/nike2.png";
 import Header from "../../components/Header";
 import Button from "../../components/CustomButton";
 import CustomInput from "../../components/Input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import validator from "validator";
 import InputError from "../../components/InputErrorMessage";
-import {
-  createUserWithEmailAndPassword,
-  AuthError,
-  AuthErrorCodes,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword, AuthErrorCodes } from "firebase/auth";
 import { auth, db } from "../../config/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
+import { AuthContext } from "../../context/AuthContext";
 
 const Register = () => {
+  const { isAutheticated } = useContext(AuthContext);
+  const navigate = useNavigate();
   const {
     register,
     formState: { errors },
@@ -33,6 +32,12 @@ const Register = () => {
     watch,
     setError,
   } = useForm();
+
+  useEffect(() => {
+    if (isAutheticated) {
+      navigate("/");
+    }
+  }, [isAutheticated]);
 
   const watchPassword = watch("password");
 
