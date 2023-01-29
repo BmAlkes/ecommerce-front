@@ -16,6 +16,7 @@ export const Wrapper = styled.main`
     h2 {
       color: ${(props) => props.theme.colors.textColor};
       font-size: 40px;
+      cursor: pointer;
     }
     p {
       display: flex;
@@ -24,6 +25,7 @@ export const Wrapper = styled.main`
       width: 145px;
       color: ${(props) => props.theme.colors.textColor2};
       font-size: 18px;
+      cursor: pointer;
     }
     svg {
       width: 40px;

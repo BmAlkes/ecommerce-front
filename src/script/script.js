@@ -21,7 +21,8 @@ const products = [
     displayName: "Shoes",
     imageUrl:
       "https://images.unsplash.com/photo-1597045566677-8cf032ed6634?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
-    shoes: [
+    phrase: "View All Shoes collection",
+    products: [
       {
         id: "6228fc8bb7e6cb904bbe014e",
         name: "Nike Run",
