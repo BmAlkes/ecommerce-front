@@ -29,6 +29,7 @@ export const ProductInfo = styled.div`
   display: flex;
   justify-content: space-between;
   margin-top: 1rem;
+  padding: 10px 0;
   p {
     font-size: 1.2rem;
     font-weight: 500;
