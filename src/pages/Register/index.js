@@ -17,7 +17,11 @@ import CustomInput from "../../components/Input";
 import { Link } from "react-router-dom";
 import validator from "validator";
 import InputError from "../../components/InputErrorMessage";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  AuthError,
+  AuthErrorCodes,
+} from "firebase/auth";
 import { auth, db } from "../../config/firebase.config";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -27,6 +31,7 @@ const Register = () => {
     formState: { errors },
     handleSubmit,
     watch,
+    setError,
   } = useForm();
 
   const watchPassword = watch("password");
@@ -46,7 +51,10 @@ const Register = () => {
         email: userCredentials.user.email,
       });
     } catch (error) {
-      console.log(error);
+      const _error = error;
+      if (_error.code === AuthErrorCodes.EMAIL_EXISTS) {
+        return setError("email", { type: "alredyInUse" });
+      }
     }
   };
   console.log({ errors });
@@ -102,6 +110,9 @@ const Register = () => {
               {errors.email?.type === "validate" && (
                 <InputError>Email Invalid</InputError>
               )}
+              {errors.email?.type === "alredyInUse" && (
+                <InputError>Email already in use </InputError>
+              )}
             </LoginInputContainer>
             <LoginInputContainer>
               <p>Password</p>
@@ -109,10 +120,13 @@ const Register = () => {
                 type="password"
                 hasError={!!errors.password}
                 placeholder="Enter your Password"
-                {...register("password", { required: true })}
+                {...register("password", { required: true, minLength: 6 })}
               />
               {errors.password?.type === "required" && (
                 <InputError> Password required</InputError>
+              )}
+              {errors.password?.type === "minLength" && (
+                <InputError> Password must be up to 6 caracteres</InputError>
               )}
             </LoginInputContainer>
             <LoginInputContainer>
@@ -123,6 +137,7 @@ const Register = () => {
                 placeholder="Confirm Password "
                 {...register("password2", {
                   required: true,
+                  minLength: 6,
                   validate: (value) => {
                     return value === watchPassword;
                   },
@@ -132,6 +147,9 @@ const Register = () => {
                 <InputError>
                   Confirmation password need to be the same as password
                 </InputError>
+              )}
+              {errors?.password2?.type === "minLenght" && (
+                <InputError>Password must be up to 6 caracteres</InputError>
               )}
             </LoginInputContainer>
             <Button onClick={() => handleSubmit(handleSubmitPress)()}>
