@@ -3,16 +3,13 @@ import Header from "../../components/Header";
 import Hero from "../../components/Hero";
 import SquareProduct from "../../components/squareShoes";
 import { Wrapper } from "./styles";
-import nike from "../../assets/imgs/nike2.png";
+
 import nike3 from "../../assets/imgs/nike3.png";
 import SmallBanner from "../../components/SmallBanner";
 import BigBanner from "../../components/BigBanner";
 import { CategorieContext } from "../../context/CategorieContext";
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import CategoryOverview from "../../components/CategoryOverview";
-import ProductItem from "../../components/ProductItem";
-import { Snapchat } from "styled-icons/boxicons-logos";
 
 function Home() {
   const navigate = useNavigate();
@@ -29,8 +26,18 @@ function Home() {
         <Header />
         <Hero />
         <div className=" dividerSection">
-          <h2>Releases</h2>
-          <p>
+          <h2
+            onClick={() => {
+              navigate("/products");
+            }}
+          >
+            Releases
+          </h2>
+          <p
+            onClick={() => {
+              navigate("/products");
+            }}
+          >
             See More <RightArrowAlt />
           </p>
         </div>

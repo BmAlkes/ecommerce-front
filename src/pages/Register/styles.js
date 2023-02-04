@@ -66,7 +66,7 @@ export const LoginContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 80%;
 `;
 
 export const LoginSubtitle = styled.p`
@@ -85,7 +85,7 @@ export const LoginSubtitle = styled.p`
 export const LoginInputContainer = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  max-width: 300px;
+  max-width: 400px;
   p:nth-child(1) {
     font-weight: 600;
     margin-bottom: 5px;

@@ -82,7 +82,7 @@ export const LoginSubtitle = styled.p`
 export const LoginInputContainer = styled.div`
   width: 100%;
   margin-bottom: 20px;
-  width: 300px;
+  max-width: 400px;
   p:nth-child(1) {
     font-weight: 600;
     font-size: 0.875rem;

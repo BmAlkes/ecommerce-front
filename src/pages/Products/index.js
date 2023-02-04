@@ -54,12 +54,33 @@ const Products = () => {
         </div>
       </div>
       <div className="squareProduct">
-        <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-        <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-        <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-        <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-        <SquareProduct text={"Air Max 90"} price={300} img={nike} />
-        <SquareProduct text={"Air Max 90"} price={300} img={nike} />
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
+        {categories.map((category) => (
+          <SquareProduct category={category} />
+        ))}
       </div>
     </Container>
   );
