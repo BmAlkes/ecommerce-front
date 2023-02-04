@@ -4,21 +4,23 @@ const Container = styled.div`
   background-color: ${(props) => props.theme.colors.secondaryColor};
   border-radius: 5px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 10px;
+  justify-content: space-between;
+  padding: 20px;
+  height: 388px;
+  position: relative;
+
   h2 {
     color: ${(props) => props.theme.colors.whiteColor};
     font-size: 26px;
-    padding: 16px 32px;
+    padding: 10px;
     font-weight: bold;
   }
 
   img {
     width: 100%;
+    max-width: 250px;
     object-fit: cover;
-    aspect-ratio: 16/9;
     padding: 10px;
   }
   button {

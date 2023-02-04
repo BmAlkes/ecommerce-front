@@ -1,5 +1,5 @@
 import React from "react";
-import { CustomButtonContainer, IconContainer } from "./styles";
+import { CustomButtonContainer } from "./styles";
 
 const Button = ({ children, ...props }) => {
   return (

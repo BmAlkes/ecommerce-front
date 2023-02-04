@@ -8,7 +8,7 @@ export const CustomButtonContainer = styled.button`
   width: 100%;
   padding: 12px 20px;
   font-weight: 200;
-  max-width: 300px;
+  max-width: 400px;
 
   &:hover {
     cursor: pointer;

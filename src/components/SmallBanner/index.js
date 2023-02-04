@@ -2,12 +2,15 @@ import React from "react";
 import Button from "../CustomButton";
 import { Container } from "./styles";
 
-const SmallBanner = ({ category }) => {
+const SmallBanner = ({ phrase, image, name }) => {
   return (
     <Container>
-      <h2>{category.phrase}</h2>
-      <img src={category.imageUrl} alt={category.name} />
-      <Button>Buy Now</Button>
+      <div>
+        <h2>{phrase}</h2>
+
+        <Button>Buy Now</Button>
+      </div>
+      <img src={image} alt={name} />
     </Container>
   );
 };

@@ -3,8 +3,17 @@ import Header from "../../components/Header";
 import { Container } from "./styles";
 import nike from "../../assets/imgs/nike2.png";
 import SquareProduct from "../../components/squareShoes";
+import { useContext } from "react";
+import { CategorieContext } from "../../context/CategorieContext";
+import { useEffect } from "react";
 
 const Products = () => {
+  const { categories, fetchCategories } = useContext(CategorieContext);
+
+  useEffect(() => {
+    fetchCategories();
+  }, []);
+
   return (
     <Container>
       <Header />

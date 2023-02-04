@@ -12,6 +12,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CategoryOverview from "../../components/CategoryOverview";
 import ProductItem from "../../components/ProductItem";
+import { Snapchat } from "styled-icons/boxicons-logos";
 
 function Home() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function Home() {
   useEffect(() => {
     fetchCategories();
   }, []);
-  const shoes = categories[0]?.shoes;
+  console.log(categories);
 
   return (
     <>
@@ -35,13 +36,35 @@ function Home() {
         </div>
         <div className="squareProduct">
           {categories.map((category) => (
-            <CategoryOverview category={category} key={category.id} />
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
           ))}
         </div>
         <div className="banner">
-          {categories.map((category) => (
-            <SmallBanner category={category} key={category.id} />
-          ))}
+          <SmallBanner
+            phrase="See Men's Clothing Collection"
+            image={nike3}
+            name="nike"
+          />
+          <SmallBanner
+            phrase="See Womans Clothing Collection"
+            image={nike3}
+            name="nike"
+          />
         </div>
         <div className=" dividerSection">
           <h2
@@ -61,7 +84,31 @@ function Home() {
         </div>
         <div className="squareProduct">
           {categories.map((category) => (
-            <CategoryOverview category={category} key={category.id} />
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
+          ))}
+          {categories.map((category) => (
+            <SquareProduct category={category} />
           ))}
         </div>
         <BigBanner img={nike3} />
