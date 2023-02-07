@@ -49,7 +49,6 @@ const dotStyle = {
 };
 
 const ImageSlider = ({ slides }) => {
-  console.log(slides);
   const [currentIndex, setCurrentIndex] = useState(0);
   const goToPrevious = () => {
     const isFirstSlide = currentIndex === 0;

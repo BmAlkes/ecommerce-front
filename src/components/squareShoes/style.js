@@ -2,11 +2,9 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 370px;
-  margin-bottom: 45px;
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  margin-bottom: 45px;
+
   .block {
     background-color: ${(props) => props.theme.colors.backgroundColor};
   }

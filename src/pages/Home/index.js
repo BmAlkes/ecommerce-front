@@ -7,9 +7,9 @@ import { Wrapper } from "./styles";
 import nike3 from "../../assets/imgs/nike3.png";
 import SmallBanner from "../../components/SmallBanner";
 import BigBanner from "../../components/BigBanner";
-import { CategorieContext } from "../../context/CategorieContext";
-import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { CategorieContext } from "../../context/CategorieContext";
 
 function Home() {
   const navigate = useNavigate();
@@ -18,8 +18,6 @@ function Home() {
   useEffect(() => {
     fetchCategories();
   }, []);
-  console.log(categories);
-
   return (
     <>
       <Wrapper>
@@ -42,24 +40,9 @@ function Home() {
           </p>
         </div>
         <div className="squareProduct">
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
+          {categories?.slice(0, 6).map((category) => {
+            return <SquareProduct category={category} key={category.id} />;
+          })}
         </div>
         <div className="banner">
           <SmallBanner
@@ -90,30 +73,6 @@ function Home() {
           </p>
         </div>
         <div className="squareProduct">
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
-          {categories.map((category) => (
-            <SquareProduct category={category} />
-          ))}
           {categories.map((category) => (
             <SquareProduct category={category} />
           ))}

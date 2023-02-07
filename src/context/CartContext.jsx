@@ -1,21 +1,32 @@
 const { createContext, useContext, useState } = require("react");
 
-const CartContext = createContext();
+export const CartContext = createContext({
+  products: [],
+  cart: [],
+  isVisible: false,
+  setVisible: () => {},
+  toogleCart: () => {},
+});
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState("");
+  const [cart, setCart] = useState([]);
+  const [isVisible, setVisible] = useState(false);
 
-  function addToCart(item) {}
+  function addToCart(item) {
+    setCart((prevState) => [...prevState, { ...item, quantity: 1 }]);
+  }
 
   function removeFromCart(item) {}
 
+  const toogleCart = () => {
+    setVisible((prevState) => !prevState);
+  };
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
+    <CartContext.Provider
+      value={{ cart, addToCart, removeFromCart, isVisible, toogleCart }}
+    >
       {children}
     </CartContext.Provider>
   );
-}
-
-export function useCart() {
-  return useContext(CartContext);
 }

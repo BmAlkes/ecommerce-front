@@ -1,19 +1,27 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import Button from "../CustomButton";
 import { Container } from "./style";
 
 const SquareProduct = ({ category }) => {
-  console.log(category);
+  const navigate = useNavigate();
   return (
-    <Container>
-      <div className="block">
-        <img src={category.products[0].imageUrl} alt={category.displayName} />
-      </div>
-      <p>{category.products[0].name}</p>
-      <span>${category.products[0].price}</span>
-      <Button>Buy Now</Button>
-    </Container>
+    <>
+      {category.products.map((product) => {
+        return (
+          <Container key={product.id}>
+            <div className="block">
+              <img src={product.imageUrl} alt={product.displayName} />
+            </div>
+            <p>{product.name}</p>
+            <span>{product.price}</span>
+            <Button onClick={() => navigate(`/product/${product.id}`)}>
+              Buy Now
+            </Button>
+          </Container>
+        );
+      })}
+    </>
   );
 };
 

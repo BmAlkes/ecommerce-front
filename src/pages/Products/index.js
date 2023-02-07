@@ -57,30 +57,6 @@ const Products = () => {
         {categories.map((category) => (
           <SquareProduct category={category} />
         ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
-        {categories.map((category) => (
-          <SquareProduct category={category} />
-        ))}
       </div>
     </Container>
   );

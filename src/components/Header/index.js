@@ -13,9 +13,11 @@ import {
 import { signOut } from "firebase/auth";
 import { auth } from "../../config/firebase.config";
 import { AuthContext } from "../../context/AuthContext";
+import { CartContext } from "../../context/CartContext";
 
 const Header = () => {
   const { isAutheticated } = useContext(AuthContext);
+  const { toogleCart } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -42,7 +44,7 @@ const Header = () => {
             <HeaderItem>
               <Heart />
             </HeaderItem>
-            <HeaderItem>
+            <HeaderItem onClick={toogleCart}>
               <Bag />
               <span>2</span>
             </HeaderItem>

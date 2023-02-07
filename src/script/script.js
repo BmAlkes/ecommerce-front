@@ -30,6 +30,41 @@ const products = [
         imageUrl:
           "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
       },
+      {
+        id: "6228fc8bb7e6cb904bbe014e2",
+        name: "Nike Run3",
+        price: 150,
+        imageUrl:
+          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
+      },
+      {
+        id: "6228fc8bb7e6cb904bbe014e3",
+        name: "Nike Run 3",
+        price: 150,
+        imageUrl:
+          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
+      },
+      {
+        id: "6228fc8bb7e6cb904bbe014e4",
+        name: "Nike Run 4",
+        price: 150,
+        imageUrl:
+          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
+      },
+      {
+        id: "6228fc8bb7e6cb904bbe014e5",
+        name: "Nike Run 5",
+        price: 150,
+        imageUrl:
+          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
+      },
+      {
+        id: "6228fc8bb7e6cb904bbe014e6",
+        name: "Nike Run 6",
+        price: 150,
+        imageUrl:
+          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
+      },
     ],
   },
 ];
@@ -37,7 +72,7 @@ const products = [
 const main = async () => {
   await Promise.all(
     products.map(async (category) => {
-      await addDoc(collection(db, "categories"), category);
+      await addDoc(collection(db, "products"), category);
     })
   );
 };

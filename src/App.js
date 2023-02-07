@@ -10,15 +10,17 @@ import Product from "./pages/Product";
 import theme from "./styles/theme";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./config/firebase.config";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { collection, getDocs, query, where } from "firebase/firestore";
 import Loading from "./components/Loading";
+import Cart from "./components/Cart";
 
 function App() {
   const [isInitializing, setIsInitializing] = useState(true);
 
   const { currentUser, isAutheticated, loginUser, logoutUser } =
     useContext(AuthContext);
+
   onAuthStateChanged(auth, async (user) => {
     const isSignout = isAutheticated && !user;
     if (isSignout) {
@@ -50,6 +52,7 @@ function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/product/:id" element={<Product />} />
         </Routes>
+        <Cart />
       </BrowserRouter>
     </ThemeProvider>
   );

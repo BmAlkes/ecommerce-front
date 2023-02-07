@@ -9,6 +9,9 @@ const Container = styled.div`
   padding: 20px;
   height: 388px;
   position: relative;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 
   h2 {
     color: ${(props) => props.theme.colors.whiteColor};
@@ -32,7 +35,6 @@ const Container = styled.div`
       padding: 32px 50px 16px 32px;
     }
     div {
-      flex-direction: column;
       button {
         margin-bottom: 10px;
       }

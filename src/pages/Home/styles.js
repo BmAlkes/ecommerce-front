@@ -32,11 +32,10 @@ export const Wrapper = styled.main`
     }
   }
   .squareProduct {
-    display: flex;
-    grid-template-columns: repeat(3, 1fr) !important;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
+
   .banner {
     display: flex;
     gap: 26px;
@@ -61,8 +60,6 @@ export const Wrapper = styled.main`
     }
     .banner {
       flex-direction: column;
-      margin: auto;
-      gap: 26px;
     }
   }
 `;

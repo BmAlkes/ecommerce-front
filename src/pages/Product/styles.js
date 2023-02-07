@@ -23,7 +23,7 @@ export const CategoryTitle = styled.p`
 
 export const ProductContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   width: 100%;
   justify-content: space-between;
   gap: 20px;
@@ -36,32 +36,29 @@ export const ProductContainer = styled.div`
   }
   .rightContainer {
     width: 500px;
+    height: 450px;
     display: flex;
     align-items: flex-start;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
+
     h2 {
       font-size: 48px;
       font-weight: 400;
       letter-spacing: 0.3rem;
-      margin-bottom: 1rem;
     }
     h3 {
-      font-family: "Lexend";
       font-style: normal;
       font-weight: 600;
       font-size: 32px;
       line-height: 135%;
-      margin-bottom: 1rem;
     }
     p {
-      font-family: "Lexend";
       font-style: normal;
       font-weight: 300;
       font-size: 20px;
       line-height: 149%;
       color: #414160;
-      margin-bottom: 1rem;
     }
     ul {
       display: flex;
@@ -69,7 +66,6 @@ export const ProductContainer = styled.div`
       align-items: flex-start;
       padding: 0px;
       gap: 16px;
-      margin-bottom: 1rem;
 
       li {
         display: flex;
