@@ -14,6 +14,7 @@ const Products = () => {
     fetchCategories();
   }, []);
 
+  console.log(categories);
   return (
     <Container>
       <Header />
@@ -55,7 +56,14 @@ const Products = () => {
       </div>
       <div className="squareProduct">
         {categories.map((category) => (
-          <SquareProduct category={category} />
+          <SquareProduct
+            id={category.id}
+            name={category.title}
+            img={category.img}
+            price={category.price}
+            description={category.description}
+            key={category.id}
+          />
         ))}
       </div>
     </Container>
