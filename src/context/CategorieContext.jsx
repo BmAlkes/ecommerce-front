@@ -14,7 +14,7 @@ export function CategorieProvider({ children }) {
   const fetchCategories = async () => {
     try {
       const categoriesFromFirestore = [];
-      const querySnapshot = await getDocs(collection(db, "categories"));
+      const querySnapshot = await getDocs(collection(db, "products"));
       querySnapshot.forEach((doc) => {
         categoriesFromFirestore.push(doc.data());
       });

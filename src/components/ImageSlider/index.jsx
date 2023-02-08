@@ -3,7 +3,7 @@ const slideStyles = {
   width: "100%",
   height: "80%",
   borderRadius: "10px",
-  backgroundSize: "80%",
+  backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundColor: "#babae9",
@@ -79,7 +79,7 @@ const ImageSlider = ({ slides }) => {
       </div>
       <div style={slideStylesWidthBackground}></div>
       <div style={dotsContainerStyles}>
-        {slides.map((slide, slideIndex) => (
+        {slides?.map((slide, slideIndex) => (
           <div
             style={dotStyle}
             key={slideIndex}

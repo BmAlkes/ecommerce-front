@@ -12,32 +12,30 @@ import { db } from "../../config/firebase.config";
 import Loading from "../../components/Loading";
 import { CategorieContext } from "../../context/CategorieContext";
 
-const images = [nike, nike, nike3];
 const Product = () => {
   const [isLoading, setLoading] = useState(false);
-  const [category, setCategory] = useState(null);
   const { addToCart } = useContext(CartContext);
+  const [productId, setProductId] = useState({});
 
-  const { categories, fetchCategories } = useContext(CategorieContext);
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
+  console.log();
   const { id } = useParams();
-  console.log(id);
   useEffect(() => {
-    const useCollectionRef = collection(db, "categories");
+    const useCollectionRef = collection(db, "products");
     const fetchCategory = async () => {
       try {
         setLoading(true);
         const response = await getDocs(useCollectionRef);
         const data = response.docs.map((doc) => ({
           ...doc.data(),
-          id: doc.id,
         }));
-        const product = data.map((item) => {
-          return item.products;
-        });
+        const product = data
+          .map((product) => {
+            return product;
+          })
+          .find((product) => {
+            return product.id === Number(id);
+          });
+        setProductId(product);
       } catch (error) {
         console.log(error);
       } finally {
@@ -48,9 +46,6 @@ const Product = () => {
   }, []);
 
   if (isLoading) return <Loading />;
-
-  // console.log(category);
-
   // const handleAddToCartClick = () => {
   //   addToCart(product);
   // };
@@ -58,25 +53,20 @@ const Product = () => {
     <>
       <Header />
       <ProductsContainer>
-        <CategoryTitle>Air Max 90</CategoryTitle>
+        <CategoryTitle>{productId?.title}</CategoryTitle>
         <ProductContainer>
           <div className="space">
-            <ImageSlider slides={images} />
+            {productId?.img && <ImageSlider slides={productId?.img} />}
           </div>
           <div className="rightContainer">
-            <h2> Air Max 90</h2>
+            <h2> {productId.title}</h2>
             <h3>$300,00</h3>
-            <p>
-              Buy the best shoes on the market Buy the best shoes on the market.
-              The best shoes on the market. Buy the best shoes on the market Buy
-              the best shoes on the market. The best shoes on the market
-            </p>
+            <p>{productId?.description}</p>
             <div className="size">
               <ul>
-                <li>S</li>
-                <li>M</li>
-                <li>G</li>
-                <li>XG</li>
+                {productId.sizes?.map((item) => {
+                  return <li>{item}</li>;
+                })}
               </ul>
             </div>
             <Button>Buy Now</Button>

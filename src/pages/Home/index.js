@@ -41,7 +41,16 @@ function Home() {
         </div>
         <div className="squareProduct">
           {categories?.slice(0, 6).map((category) => {
-            return <SquareProduct category={category} key={category.id} />;
+            return (
+              <SquareProduct
+                id={category.id}
+                name={category.title}
+                img={category.img}
+                price={category.price}
+                description={category.description}
+                key={category.id}
+              />
+            );
           })}
         </div>
         <div className="banner">
@@ -74,7 +83,14 @@ function Home() {
         </div>
         <div className="squareProduct">
           {categories.map((category) => (
-            <SquareProduct category={category} />
+            <SquareProduct
+              id={category.id}
+              name={category.title}
+              img={category.img}
+              price={category.price}
+              description={category.description}
+              key={category.id}
+            />
           ))}
         </div>
         <BigBanner img={nike3} />

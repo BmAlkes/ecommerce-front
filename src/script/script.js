@@ -16,56 +16,52 @@ const db = getFirestore(app);
 
 const products = [
   {
-    id: "6228fc5cb7e6cb904bbe014b",
-    name: "Shoes",
-    displayName: "Shoes",
-    imageUrl:
-      "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
-    phrase: "View All Shoes collection",
-    products: [
-      {
-        id: "6228fc8bb7e6cb904bbe014e",
-        name: "Nike Run",
-        price: 150,
-        imageUrl:
-          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
-      },
-      {
-        id: "6228fc8bb7e6cb904bbe014e2",
-        name: "Nike Run3",
-        price: 150,
-        imageUrl:
-          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
-      },
-      {
-        id: "6228fc8bb7e6cb904bbe014e3",
-        name: "Nike Run 3",
-        price: 150,
-        imageUrl:
-          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
-      },
-      {
-        id: "6228fc8bb7e6cb904bbe014e4",
-        name: "Nike Run 4",
-        price: 150,
-        imageUrl:
-          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
-      },
-      {
-        id: "6228fc8bb7e6cb904bbe014e5",
-        name: "Nike Run 5",
-        price: 150,
-        imageUrl:
-          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
-      },
-      {
-        id: "6228fc8bb7e6cb904bbe014e6",
-        name: "Nike Run 6",
-        price: 150,
-        imageUrl:
-          "https://res.cloudinary.com/binvent/image/upload/v1675522836/BInvent%20App/nike2_wddvzb.png",
-      },
+    id: 1,
+    title: "Nike Air Max 270 G ",
+    price: 399,
+    description:
+      "Look legendary in the Nike Air Max 270 G. The silhouette is a stitch-for-stitch reconstruction of the original big Air icon, with the addition of breathable mesh and innovative traction that performs at the highest level of play.",
+    img: [
+      "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+      "https://images.unsplash.com/photo-1473010350295-2c82192ebd8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
     ],
+    sizes: [39, 40, 41, 42, 43],
+  },
+  {
+    id: 2,
+    title: "Nike SuperRep Go 3 ",
+    price: 259,
+    description:
+      "The new Nike SuperRep Go 3 Flyknit Shoe is a radical design story rooted in sustainability and innovation. The zoned Flyknit construction wraps your foot in 360 degrees of comfort and support. A finely ground, reclaimed foam midsole gives you responsive cushioning for high-impact training. The lightweight, packable design lets you keep them close, no matter where your next workout takes you.",
+    img: [
+      "https://images.unsplash.com/photo-1539185441755-769473a23570?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80",
+      "https://images.unsplash.com/photo-1559745206-ca4056293ddc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80",
+    ],
+    sizes: [38, 39, 40, 41, 42, 43],
+  },
+  {
+    id: 3,
+    title: "Nike RuN 2022 ",
+    price: 189,
+    description:
+      "The new Nike Run 2022 Flyknit Shoe is a radical design story rooted in sustainability and innovation. The zoned Flyknit construction wraps your foot in 360 degrees of comfort and support. A finely ground, reclaimed foam midsole gives you responsive cushioning for high-impact training. The lightweight, packable design lets you keep them close, no matter where your next workout takes you.",
+    img: [
+      "https://images.unsplash.com/photo-1562183241-b937e95585b6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+      "https://images.unsplash.com/photo-1562183241-840b8af0721e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80",
+    ],
+    sizes: [40, 41, 42, 43, 44, 45],
+  },
+  {
+    id: 4,
+    title: "New Converse ",
+    price: 229,
+    description:
+      "New Converse Flyknit Shoe is a radical design story rooted in sustainability and innovation. The zoned Flyknit construction wraps your foot in 360 degrees of comfort and support. A finely ground, reclaimed foam midsole gives you responsive cushioning for high-impact training. The lightweight, packable design lets you keep them close, no matter where your next workout takes you.",
+    img: [
+      "https://images.unsplash.com/photo-1463100099107-aa0980c362e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+      "https://images.unsplash.com/photo-1494496195158-c3becb4f2475?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+    ],
+    sizes: [40, 41, 42, 43],
   },
 ];
 

@@ -10,20 +10,19 @@ const Container = styled.div`
   }
 
   img {
-    padding: 10px;
     width: 100%;
-    object-fit: contain;
-    aspect-ratio: 1/1;
+    object-fit: cover;
+    aspect-ratio: 16/9;
   }
   p {
     font-size: 24px;
-    margin: 10px 0;
+    padding: 10px;
   }
   span {
     color: ${(props) => props.theme.colors.textColor};
     font-size: 32px;
     font-weight: 600;
-    padding: 10px 0;
+    padding: 10px;
   }
 
   @media (max-width: 768px) {
