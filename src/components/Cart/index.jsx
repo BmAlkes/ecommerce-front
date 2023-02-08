@@ -10,9 +10,11 @@ import {
 import Button from "../CustomButton";
 import { CartContext } from "../../context/CartContext.jsx";
 import { AiOutlineClose } from "react-icons/ai";
+import CartItem from "../CartItem/index.jsx";
 
 const Cart = () => {
-  const { isVisible, toogleCart } = useContext(CartContext);
+  const { isVisible, toogleCart, cart } = useContext(CartContext);
+  console.log(cart);
   return (
     <CartContainer isVisible={isVisible}>
       <CartEscapeArea onClick={toogleCart}></CartEscapeArea>
@@ -23,6 +25,19 @@ const Cart = () => {
         <CartTitle>Your Cart</CartTitle>
 
         {/* produtos */}
+        {cart.map((cart) => {
+          return (
+            <CartItem
+              key={cart.id}
+              img={cart?.img}
+              title={cart?.title}
+              size={cart?.size}
+              description={cart?.description}
+              quantity={cart?.quantity}
+              price={cart?.price}
+            />
+          );
+        })}
         <CartTotal>Total: $999</CartTotal>
         <Button>Finish Purchase</Button>
       </CartContent>

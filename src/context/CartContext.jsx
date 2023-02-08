@@ -1,20 +1,35 @@
 const { createContext, useContext, useState } = require("react");
 
 export const CartContext = createContext({
-  products: [],
   cart: [],
   isVisible: false,
   setVisible: () => {},
   toogleCart: () => {},
+  addToCart: () => {},
 });
 
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isVisible, setVisible] = useState(false);
 
-  function addToCart(item) {
-    setCart((prevState) => [...prevState, { ...item, quantity: 1 }]);
-  }
+  const addToCart = (product) => {
+    //verificar se o produto ja esta no carrinho
+
+    const productAlreadyInCart = cart.some((item) => item.id === product.id);
+
+    // se estiver aumentar quantidade
+    if (productAlreadyInCart) {
+      return setCart((products) =>
+        products.map((item) =>
+          item.id === product.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        )
+      );
+    }
+    // se nao adiciona-lo
+    setCart((prevState) => [...prevState, { ...product, quantity: 1 }]);
+  };
 
   function removeFromCart(item) {}
 

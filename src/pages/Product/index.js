@@ -46,9 +46,10 @@ const Product = () => {
   }, []);
 
   if (isLoading) return <Loading />;
-  // const handleAddToCartClick = () => {
-  //   addToCart(product);
-  // };
+  const handleAddToCartClick = () => {
+    addToCart(productId);
+  };
+  console.log(productId);
   return (
     <>
       <Header />
@@ -60,16 +61,16 @@ const Product = () => {
           </div>
           <div className="rightContainer">
             <h2> {productId.title}</h2>
-            <h3>$300,00</h3>
+            <h3>${productId.price}</h3>
             <p>{productId?.description}</p>
             <div className="size">
               <ul>
                 {productId.sizes?.map((item) => {
-                  return <li>{item}</li>;
+                  return <li key={item}>{item}</li>;
                 })}
               </ul>
             </div>
-            <Button>Buy Now</Button>
+            <Button onClick={handleAddToCartClick}>Add to Cart</Button>
           </div>
         </ProductContainer>
       </ProductsContainer>
