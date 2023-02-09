@@ -14,11 +14,20 @@ import {
 } from "./styles";
 
 const CartItem = ({ img, description, title, price, quantity, id }) => {
-  console.log(id);
-  const { removeFromCart } = useContext(CartContext);
+  const {
+    removeFromCart,
+    increaseProductFromQuantity,
+    decreaseProductFromQuantity,
+  } = useContext(CartContext);
 
   const handleRemoveClick = () => {
     removeFromCart(id);
+  };
+  const handleIncreaseProduct = () => {
+    increaseProductFromQuantity(id);
+  };
+  const handleDecreaseProduct = () => {
+    decreaseProductFromQuantity(id);
   };
 
   return (
@@ -29,9 +38,9 @@ const CartItem = ({ img, description, title, price, quantity, id }) => {
         <p>{title}</p>
         <p>${price}</p>
         <CartItemQuantity>
-          <AiOutlineMinus size={20} />
+          <AiOutlineMinus size={20} onClick={handleDecreaseProduct} />
           <p>{quantity}</p>
-          <AiOutlinePlus size={20} />
+          <AiOutlinePlus size={20} onClick={handleIncreaseProduct} />
         </CartItemQuantity>
       </CartItemInfo>
 

@@ -17,7 +17,6 @@ const Product = () => {
   const { addToCart } = useContext(CartContext);
   const [productId, setProductId] = useState({});
 
-  console.log();
   const { id } = useParams();
   useEffect(() => {
     const useCollectionRef = collection(db, "products");
@@ -49,7 +48,6 @@ const Product = () => {
   const handleAddToCartClick = () => {
     addToCart(productId);
   };
-  console.log(productId);
   return (
     <>
       <Header />

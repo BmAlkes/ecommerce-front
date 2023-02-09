@@ -14,7 +14,6 @@ const Products = () => {
     fetchCategories();
   }, []);
 
-  console.log(categories);
   return (
     <Container>
       <Header />

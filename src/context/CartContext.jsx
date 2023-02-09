@@ -7,6 +7,8 @@ export const CartContext = createContext({
   toogleCart: () => {},
   addToCart: () => {},
   removeFromCart: () => {},
+  decreaseProductFromQuantity: () => {},
+  increaseProductFromQuantity: () => {},
 });
 
 export function CartProvider({ children }) {
@@ -36,13 +38,43 @@ export function CartProvider({ children }) {
     setCart((cart) => cart.filter((item) => item.id !== productId));
   }
 
+  const increaseProductFromQuantity = (productId) => {
+    setCart((cart) =>
+      cart.map((product) =>
+        product.id === productId
+          ? { ...product, quantity: product.quantity + 1 }
+          : product
+      )
+    );
+  };
+
+  const decreaseProductFromQuantity = (productId) => {
+    setCart((cart) =>
+      cart
+        .map((product) =>
+          product.id === productId
+            ? { ...product, quantity: product.quantity - 1 }
+            : product
+        )
+        .filter((product) => product.quantity > 0)
+    );
+  };
+
   const toogleCart = () => {
     setVisible((prevState) => !prevState);
   };
 
   return (
     <CartContext.Provider
-      value={{ cart, addToCart, removeFromCart, isVisible, toogleCart }}
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        isVisible,
+        toogleCart,
+        increaseProductFromQuantity,
+        decreaseProductFromQuantity,
+      }}
     >
       {children}
     </CartContext.Provider>

@@ -14,7 +14,6 @@ import CartItem from "../CartItem/index.jsx";
 
 const Cart = () => {
   const { isVisible, toogleCart, cart } = useContext(CartContext);
-  console.log(cart);
   return (
     <CartContainer isVisible={isVisible}>
       <CartEscapeArea onClick={toogleCart}></CartEscapeArea>
