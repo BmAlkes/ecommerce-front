@@ -4,6 +4,9 @@ const Container = styled.div`
   width: 370px;
   box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 45px;
+  @media (max-width: 769px) {
+    padding: 0 1rem;
+  }
 
   .block {
     background-color: ${(props) => props.theme.colors.backgroundColor};

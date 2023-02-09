@@ -19,6 +19,9 @@ const Container = styled.section`
   .container1 {
     padding-left: 41px;
     flex: 1;
+    @media (max-width: 767px) {
+      padding: 0;
+    }
 
     h1 {
       color: ${(props) => props.theme.colors.whiteColor};

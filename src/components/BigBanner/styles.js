@@ -9,6 +9,10 @@ const Container = styled.div`
   justify-content: space-around;
   align-items: center;
   margin-bottom: 114px;
+  @media (max-width: 769px) {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
 
   h2 {
     font-size: 40px;
@@ -26,12 +30,7 @@ const Container = styled.div`
     width: 413px;
     height: 285px;
     object-fit: cover;
-  }
-  @media (max-width: 768px) {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    img {
+    @media (max-width: 767px) {
       display: none;
     }
   }
