@@ -1,4 +1,10 @@
-const { createContext, useContext, useState, useMemo } = require("react");
+const {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useMemo,
+} = require("react");
 
 export const CartContext = createContext({
   cart: [],
@@ -15,6 +21,17 @@ export const CartContext = createContext({
 export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isVisible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const productsFromLocalStorage = JSON.parse(
+      localStorage.getItem("cartProducts")
+    );
+    setCart(productsFromLocalStorage);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("cartProducts", JSON.stringify(cart));
+  }, [cart]);
 
   const productTotalPrice = useMemo(() => {
     return cart.reduce((acc, currentProduct) => {
