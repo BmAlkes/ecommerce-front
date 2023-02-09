@@ -40,8 +40,9 @@ const Cart = () => {
             />
           );
         })}
-        <CartTotal>Total: ${productTotalPrice}</CartTotal>
-        <Button>Finish Purchase</Button>
+        {cart.length === 0 && <p>Empty Cart</p>}
+        {cart.length > 0 && <CartTotal>Total: ${productTotalPrice}</CartTotal>}
+        {cart.length > 0 && <Button>Finish Purchase</Button>}
       </CartContent>
     </CartContainer>
   );
