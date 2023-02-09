@@ -17,7 +17,7 @@ import { CartContext } from "../../context/CartContext";
 
 const Header = () => {
   const { isAutheticated } = useContext(AuthContext);
-  const { toogleCart } = useContext(CartContext);
+  const { toogleCart, cart } = useContext(CartContext);
 
   const navigate = useNavigate();
 
@@ -46,7 +46,7 @@ const Header = () => {
             </HeaderItem>
             <HeaderItem onClick={toogleCart}>
               <Bag />
-              <span>2</span>
+              <span>{cart.length}</span>
             </HeaderItem>
             <HeaderItem>
               <Exit onClick={() => signOut(auth)} />

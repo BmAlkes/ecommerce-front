@@ -13,7 +13,9 @@ import { AiOutlineClose } from "react-icons/ai";
 import CartItem from "../CartItem/index.jsx";
 
 const Cart = () => {
-  const { isVisible, toogleCart, cart } = useContext(CartContext);
+  const { isVisible, toogleCart, cart, productTotalPrice } =
+    useContext(CartContext);
+  console.log(productTotalPrice);
   return (
     <CartContainer isVisible={isVisible}>
       <CartEscapeArea onClick={toogleCart}></CartEscapeArea>
@@ -38,7 +40,7 @@ const Cart = () => {
             />
           );
         })}
-        <CartTotal>Total: $999</CartTotal>
+        <CartTotal>Total: ${productTotalPrice}</CartTotal>
         <Button>Finish Purchase</Button>
       </CartContent>
     </CartContainer>

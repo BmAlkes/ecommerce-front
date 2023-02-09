@@ -1,8 +1,9 @@
-const { createContext, useContext, useState } = require("react");
+const { createContext, useContext, useState, useMemo } = require("react");
 
 export const CartContext = createContext({
   cart: [],
   isVisible: false,
+  productTotalPrice: 0,
   setVisible: () => {},
   toogleCart: () => {},
   addToCart: () => {},
@@ -15,6 +16,11 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState([]);
   const [isVisible, setVisible] = useState(false);
 
+  const productTotalPrice = useMemo(() => {
+    return cart.reduce((acc, currentProduct) => {
+      return acc + currentProduct.price * currentProduct.quantity;
+    }, 0);
+  }, [cart]);
   const addToCart = (product) => {
     //verificar se o produto ja esta no carrinho
 
@@ -63,7 +69,7 @@ export function CartProvider({ children }) {
   const toogleCart = () => {
     setVisible((prevState) => !prevState);
   };
-
+  console.log(productTotalPrice);
   return (
     <CartContext.Provider
       value={{
@@ -74,6 +80,7 @@ export function CartProvider({ children }) {
         toogleCart,
         increaseProductFromQuantity,
         decreaseProductFromQuantity,
+        productTotalPrice,
       }}
     >
       {children}
