@@ -2,6 +2,7 @@ import React, { useState } from "react";
 const slideStyles = {
   width: "100%",
   height: "80%",
+  maxWidth: "600px",
   borderRadius: "10px",
   backgroundSize: "cover",
   backgroundRepeat: "no-repeat",
@@ -17,7 +18,6 @@ const rightArrowStyles = {
   fontSize: "45px",
   color: "#fff",
   zIndex: 1,
-  cursor: "pointer",
 };
 
 const leftArrowStyles = {

@@ -1,16 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
-import nike from "../../assets/imgs/nike2.png";
 import Header from "../../components/Header";
 import ImageSlider from "../../components/ImageSlider";
 import { ProductContainer, CategoryTitle, ProductsContainer } from "./styles";
-import nike3 from "../../assets/imgs/nike3.png";
 import Button from "../../components/CustomButton";
 import { CartContext } from "../../context/CartContext.jsx";
 import { useParams } from "react-router-dom";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../config/firebase.config";
 import Loading from "../../components/Loading";
-import { CategorieContext } from "../../context/CategorieContext";
 
 const Product = () => {
   const [isLoading, setLoading] = useState(false);
