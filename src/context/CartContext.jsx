@@ -6,6 +6,7 @@ export const CartContext = createContext({
   setVisible: () => {},
   toogleCart: () => {},
   addToCart: () => {},
+  removeFromCart: () => {},
 });
 
 export function CartProvider({ children }) {
@@ -31,7 +32,9 @@ export function CartProvider({ children }) {
     setCart((prevState) => [...prevState, { ...product, quantity: 1 }]);
   };
 
-  function removeFromCart(item) {}
+  function removeFromCart(productId) {
+    setCart((cart) => cart.filter((item) => item.id !== productId));
+  }
 
   const toogleCart = () => {
     setVisible((prevState) => !prevState);

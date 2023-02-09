@@ -35,6 +35,7 @@ const Cart = () => {
               description={cart?.description}
               quantity={cart?.quantity}
               price={cart?.price}
+              id={cart.id}
             />
           );
         })}
